@@ -28,3 +28,12 @@
 
 # 如何生成自定义的摩擦力图
  `main_gen_frictionmap.py`为'inputs'文件夹中提供的任何赛道文件创建自定义摩擦力图。生成的摩擦力图存储在'inputs/frictionmaps'文件夹中，这些摩擦力图可以用于最短时间优化。原则上，它们也可以用于最小曲率规划器的速度曲线计算。但是，我们目前不支持此功能。（待补充：赛道文件如何得到）
+
+# 运行代码（作者使用ai，未尝试具体的调整）
+* `第一步`：（可选）调整位于 `params` 文件夹中的参数文件（必需文件）。
+* `第二步`：（可选）调整 `inputs/veh_dyn_info` 中的 ggv 图和 ax_max_machines 文件（如果使用）。此加速度应在不考虑阻力的情况下计算，即仅通过 F_x_drivetrain / m_veh 计算！
+* `第三步`：（可选）在 `inputs/tracks` 中添加您自己的参考轨迹文件（必需文件）。
+* `第四步`：（可选）在 `inputs/frictionmaps` 中添加您自己的摩擦力映射文件（如果使用）。
+* `第五步`：（可选）如果您想考虑动力系统特性（热特性、功率损耗、荷电状态），请在参数文件 (`/params`) 中启用动力系统选项，并根据需要调整动力系统参数。在 `main_globaltraj.py` 文件中的字典 `imp_opts` 中设置比赛圈数，并在参数文件 (`/params`) 中（如果使用）指定非规则离散化步长，以加快优化速度。您可以通过设置 `/params/racecar.ini:simple_loss = True` 来选择动力总成组件的简单近似模型，或者通过指定 `/params/racecar.ini:simple_loss = False` 来考虑更精细的模型。
+* `第六步`： 调整 `main_globaltraj.py` 文件中上方的参数并执行它以启动轨迹生成过程。
+计算出的比赛轨迹存储在 `outputs/traj_race_cl.csv` 文件中。
