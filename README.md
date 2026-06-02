@@ -20,3 +20,8 @@
 # 轨迹规划辅助函数库
 这是运行该项目不可缺少的repository，包含了轨迹规划必要的函数，需要下载。链接：https://github.com/TUMFTM/trajectory_planning_helpers.
 
+# 环境依赖
+请使用'requirements.txt'文件中指示的版本安装必要模块。（原项目代码使用Ubantu 20.04 LTS 和 python 3.7 开发）。
+可能存在的安装问题：
+* `cvxpy`、`cython` 或任何其他需要 `Visual C++ 编译器`的软件包：下载visual studio 2019 生成工具。（https://visualstudio.microsoft.com/de/downloads/ -> Visual Studio 2019 工具 -> 生成工具），安装它们，并选择“C++ 生成工具”选项来安装所需的 C++ 编译器及其依赖项。（作者本人未尝试过）
+* quadprog 的问题：原因不明，请尝试使用 0.1.6 版本而不是 0.1.7 版本进行测试。
