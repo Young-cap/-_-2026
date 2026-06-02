@@ -96,3 +96,16 @@
 * vx_racetraj_mps：float32，米/秒。当前点的目标速度。
 
 * ax_racetraj_mps2：float32，米/秒²。当前点的目标加速度。假设该加速度从当前点到下一个点保持不变。
+生成的文件可以直接导入到[基于图的局部轨迹规划器](https://github.com/TUMFTM/GraphBasedLocalTrajectoryPlanner)中。(这是做什么用的？)
+
+# 参考
+* 最小曲率轨迹规划\Heilmeier、Wischnewski、Hermansdorfer、Betz、Lienkamp、Lohmann\
+自动赛车的最小曲率轨迹规划与控制\DOI: 10.1080/00423114.2019.1631455\联系人：[Alexander Heilmeier](mailto:alexander.heilmeier@tum.de)。
+
+* 时间最优轨迹规划\Christ、Wischnewski、Heilmeier、Lohmann\考虑可变轮胎-路面摩擦系数的赛车时间最优轨迹规划\DOI：10.1080/00423114.2019.1704804\联系人：Fabian Christ（邮箱：fabian.christ@tum.de）
+
+* 摩擦力图生成\Hermansdorfer、Betz、Lienkamp\用于自动驾驶赛车轮胎-路面摩擦力潜力估计和预测的概念\DOI：10.1109/ITSC.2019.8917024\联系人：Leonhard Hermansdorfer（邮箱：leo.hermansdorfer@tum.de）
+
+* 动力系统行为\Herrmann、Passigato、Betz、Lienkamp\自动驾驶电动赛车的最短比赛时间规划策略\DOI：10.1109/ITSC45102.2020.9294681\预印本：https://arxiv.org/abs/2005.07127 \联系人：[Thomas Herrmann](mailto:thomas.herrmann@tum.de)。
+
+2026.6.2
