@@ -1,6 +1,8 @@
 # 全局轨迹优化——2026版本
 该项目是基于global_racetrajectory_optimization的翻译版本，旨在达到更好的理解，因此有作者本人观点的删改。诸位G友若有更好建议欢迎提出！
 
+原链接：https://github.com/TUMFTM/global_racetrajectory_optimization/blob/master/Readme.md?plain=1
+
 项目包含用于确定赛道上最佳赛车路线的算法。（赛道类似马路，赛车路线指赛车具体的行驶路径）,关于轨迹的选择有以下几个选项：
 
 * 最短路径
@@ -37,3 +39,12 @@
 * `第五步`：（可选）如果您想考虑动力系统特性（热特性、功率损耗、荷电状态），请在参数文件 (`/params`) 中启用动力系统选项，并根据需要调整动力系统参数。在 `main_globaltraj.py` 文件中的字典 `imp_opts` 中设置比赛圈数，并在参数文件 (`/params`) 中（如果使用）指定非规则离散化步长，以加快优化速度。您可以通过设置 `/params/racecar.ini:simple_loss = True` 来选择动力总成组件的简单近似模型，或者通过指定 `/params/racecar.ini:simple_loss = False` 来考虑更精细的模型。
 * `第六步`： 调整 `main_globaltraj.py` 文件中上方的参数并执行它以启动轨迹生成过程。
 计算出的比赛轨迹存储在 `outputs/traj_race_cl.csv` 文件中。
+重要提示：有关最短时间优化的更多信息，请参阅位于 `opt_mintime_traj` 文件夹中的相应 `Readme.md` 文件！
+例如：柏林FE赛道的最终赛车线，opt_raceline_berlin.png
+
+# 变量名定义一致
+* path -> [x, y] 描述包含点的 x、y 坐标（即点坐标）的任何数组。\
+* refline -> [x, y] 用作计算中参考线的路径。\
+* reftrack -> [x, y, w_tr_right, w_tr_left] 一个数组，不仅包含参考线信息，还包含左右赛道宽度。\
+在本项目中，reftrack作为用于优化的基本赛道线，包含赛道信息。（待补全：具体什么含义）
+法向量通常指向行驶方向的右侧。因此，我们通过以下乘法得到轨迹边界，例如：`norm_vector * w_tr_right, -norm_vector * w_tr_left`
